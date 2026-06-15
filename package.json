@@ -1,0 +1,15 @@
+{
+  "name": "filebiocheck",
+  "version": "1.0.0",
+  "description": "Test",
+  "type": "module",
+  "main": "filebiocheck.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Kathryn Knight",
+  "license": "MIT",
+  "dependencies": {
+    "JSONStream": "^1.3.5"
+  }
+}
