@@ -5,6 +5,20 @@ Reads input from a file, writes output to a file.
 Writes csv out, unless a file ending in json is specified.
 Can be used in a pipe.
 
+
+Profiles are supplied as a JSON that contains, for each profile, fields as returned from the WikiTree API, including:<br>
+`Id,Name,IsLiving,Privacy,Manager,BirthDate,DeathDate,BirthDateDecade,DeathDateDecade, FirstName,RealName,LastNameCurrent,LastNameAtBirth,DataStatus,Bio,IsMember,BirthLocation,DeathLocation,ResearchStatus,Managers"`
+
+Output is either as JSON or csv and contains the following<br>
+| Field       | Content |
+| ----------- | ----------- |
+| Id | profile Id |
+| Name | wikitree-id |
+| HasSources | boolean true if profile has valid sources |
+| BioScore | Bio Check score |
+| HasStyleIssues | boolean true if Bio Check found style issues |
+
+
 ## Shared Code
 The following are **identical** classes found in the Bio Check app, in the 
 WikiTree Browser Extension, and in the WikiTree Dynamic Tree. Please do not
