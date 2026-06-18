@@ -1038,7 +1038,6 @@ validateSourcesStr(sourcesStr, thePerson) {
     return this.#style.bioHasMaternalDnaConf;
   }
   /** 
-  /** 
    * Return messages for reporting
    * @returns {Array} sectionMessages[]
    */

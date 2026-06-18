@@ -471,6 +471,7 @@ export class BioCheckPerson {
    * mStatusFather, mStatusMother
    */
   build() {
+    this.person.privacyLevel = this.OPEN_PRIVACY;
     let bDay = document.getElementById("mBirthDate").value;
     let dDay = document.getElementById("mDeathDate").value;
     this.#birthDate = null;
