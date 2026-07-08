@@ -506,17 +506,20 @@ export class Biography {
                       this.#style.bioHasStyleIssues = true;
                       this.#bioScore--;
                     } else {
-                      if (this.#stats.numberStickers > 0) {
-                        let msg = 'Notability statement should be before any Sticker';
-                        this.#messages.styleMessages.push(msg);
-                        this.#style.bioHasStyleIssues = true;
-                        this.#bioScore--;
-                      } else {
-                        if (haveBioText) {
-                          let msg = 'Notability statement should be after Biography heading and before any text';
+                      // handle multi lingual
+                      if (this.#bioHeadingsFound.length == 1) {
+                        if (this.#stats.numberStickers > 0) {
+                          let msg = 'Notability statement should be before any Sticker';
                           this.#messages.styleMessages.push(msg);
                           this.#style.bioHasStyleIssues = true;
                           this.#bioScore--;
+                        } else {
+                          if (haveBioText) {
+                            let msg = 'Notability statement should be after Biography heading and before any text';
+                            this.#messages.styleMessages.push(msg);
+                            this.#style.bioHasStyleIssues = true;
+                            this.#bioScore--;
+                          }
                         }
                       }
                     }
