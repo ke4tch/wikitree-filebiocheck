@@ -68,10 +68,10 @@ export class BioCheckStream extends Transform {
           let biography = new Biography(theSourceRules);
           biography.parse(bioString, thePerson, '');
           biography.validateAllDates();
-          let csvData = id + ',' + 
-                      Number(biography.hasStyleIssues()) + ',' +
-                      Number(biography.hasModernSources()) + ',' + 
-                      Number(biography.hasTooOldSources()) + ',' +
+          let csvData = id + ';' + 
+                      Number(biography.hasStyleIssues()) + ';' +
+                      Number(biography.hasModernSources()) + ';' + 
+                      Number(biography.hasTooOldSources()) + ';' +
                       Number(biography.hasPre1700Sources()) + '\n';
           this.push(csvData);
           profileCount++;
