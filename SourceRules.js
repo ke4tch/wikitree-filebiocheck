@@ -766,6 +766,7 @@ class SourceRules {
     "family-tree",
     "familysearch.org/tree",
     "family search profile",
+    "familysearch profile",
     "gedbas",
     "gencircles.com",
     //"genealogie.quebec",
