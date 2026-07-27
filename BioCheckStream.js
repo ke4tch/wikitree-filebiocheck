@@ -66,7 +66,7 @@ export class BioCheckStream extends Transform {
       if (line.trim()) {
         let id = line.substring(0, line.indexOf(','));
         if (id == 'Id') {
-          this.push('Id,Sources,Issues\n');
+          this.push('Id;Sources;Issues\n');
         } else {
           let bioString = line.substring(line.indexOf(',') + 1);
           let thePerson = new BioCheckPerson();
