@@ -21,7 +21,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 import { theSourceRules } from "./SourceRules.js";
-import { BioCheckPerson } from "./BioCheckPerson.js";
 import { Biography } from "./Biography.js";
 import { BioCheckStream } from "./BioCheckStream.js";
 import { pipeline } from 'node:stream';
@@ -39,12 +38,14 @@ import { readFileSync } from 'node:fs';
  *
  * Output is csv containing the following
  *   Id: the profile Id
- *   HasStyleIssues: boolean if bioCheck found style issues
- *   HasModernSources: has valid sources
- *   HasTooOldSources:  has valid source born > 150 years ago or died < 100 years ago
- *   HasPre1700Sources:  has valid sources born or died < 1700
+ *   Sources: bitmap for profile sources
+ *      HAS_MODERN_SOURCES: 0x0001,
+ *      HAS_TOO_OLD_SOURCES: 0x0002,
+ *      HAS_PRE_1700_SOURCES: 0x0004,
+ *   Issues: bitmap for profile issues
+ *      see BioCheckStream.getIssues for the bitmap
  *
- * Uses Templates from a local file named ???
+ * Uses Templates from a local file named ./js/templatesExp.json
  */
 
 /* 
