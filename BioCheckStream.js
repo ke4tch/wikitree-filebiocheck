@@ -57,7 +57,6 @@ export class BioCheckStream extends Transform {
   _transform(chunk, encoding, callback) {
     this.buffer += chunk.toString();
     const lines = this.buffer.split('\r\n');
-
     // Keep the last incomplete line in the buffer
     this.buffer = lines.pop();
 

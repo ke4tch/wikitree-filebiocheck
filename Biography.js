@@ -233,7 +233,6 @@ export class Biography {
     this.#bioSearchString = bioSearchString;
     this.#fatherDnaMarked = thePerson.person.fatherDnaConfirmed;
     this.#motherDnaMarked = thePerson.person.motherDnaConfirmed;
-
     // update score from the person fields
     this.#scorePerson(thePerson);
 
@@ -359,7 +358,6 @@ export class Biography {
                * and since you are confusing the Successsion and Succession box and the later are deprecated, 
                * check for that first
                */
-
               if (this.#sourceRules.isNavBox(partialLine, partialMixedCaseLine)) {
                 this.#parseNavBox(partialLine);
               } else {
@@ -1060,7 +1058,7 @@ export class Biography {
    * @returns {Boolean} true elements out of order
    */
   hasElementNotInProperOrder () {
-    return this.#style.ElementNotInOrder;
+    return this.#style.bioHasElementNotInOrder;
   }
   /**
    * does bio have incomplete Dna confirmation
@@ -1807,6 +1805,7 @@ export class Biography {
     }
     if (this.#style.misplacedLineCount > 0) {
       this.#style.bioHasStyleIssues = true;
+      this.#style.bioHasElementNotInOrder = true;
       let msg = this.#style.misplacedLineCount + ' line';
       if (this.#style.misplacedLineCount > 1) {
         msg += 's';

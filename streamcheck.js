@@ -85,7 +85,7 @@ try {
   // read templates from a file not via a WT+ request
   let templateJson = readFileSync(TEMPLATE_FILE, 'utf8');
   let templateData = JSON.parse(templateJson);
-  theSourceRules.loadTemplates(templateData);
+  theSourceRules.loadTemplates(templateData.templates);
 
   let profileCount = 0;
   let bioCheckStream = new BioCheckStream();
