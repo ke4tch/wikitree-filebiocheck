@@ -49,6 +49,7 @@ class SourceRules {
     "biography",
     "biographie",
     "biografia",
+    "biografía",
     "biografie",
     "biografi",
     "elämäntarina",
