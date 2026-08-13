@@ -406,7 +406,6 @@ export class Biography {
     }
 
     if (!this.#stats.isDisprovenExistence && !this.#stats.isUncertainExistence) {
-
       // acknowlegements may go to end of bio
       if (this.#acknowledgementsEndIndex < 0) {
         this.#acknowledgementsEndIndex = lineCount;
@@ -496,6 +495,11 @@ export class Biography {
     let isValid = false;
     if (this.#stats.isDisprovenExistence || this.#stats.isUncertainExistence) {
       isValid = true;  // disable reporting?
+      if (this.#checkAllDates) {
+        this.#sources.hasModernSources = true;
+        this.#sources.hasPre1700Sources = true;
+        this.#sources.hasTooOldSources = true;
+      }
     } else {
       // Don't bother for empty bio
       if (!this.#stats.bioIsEmpty) {
@@ -3259,9 +3263,9 @@ export class Biography {
 
   /*
    * Find number of cM.
-   * Note at present this only works for . as a decimal separator, not for ,
    */
   #getCm(line) {
+    line = line.replaceAll(',', '');  // lose the ,
     let cM = this.#findPrecedingNumber(line, ' cm');
     if (cM == 0) {
       cM = this.#findPrecedingNumber(line, 'centimorgan');
